@@ -1,5 +1,7 @@
 # Claude Sentinel
 
+> **Experimental** — This package was built for my personal setup (Doom Emacs + vterm + persp-mode). It works well for me but is not production-ready. Feel free to fork and adjust for your own workflow.
+
 Monitor and manage [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI instances running in Emacs vterm buffers.
 
 Claude Sentinel tracks the state of every Claude Code session across workspaces, providing a dashboard, modeline indicator, tabbed header-line, and desktop notifications — so you always know what your agents are doing.
@@ -111,9 +113,18 @@ Clone this repo and add to your `load-path`:
 - [vterm](https://github.com/akermu/emacs-libvterm)
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI
 
+## LLM Summaries
+
+Claude Sentinel can auto-generate short session titles using an LLM via [OpenRouter](https://openrouter.ai/). This requires an API key:
+
+```elisp
+(setq claude-sentinel-openrouter-api-key "sk-or-...")
+```
+
+Without this, instances will show their project name instead of a summary. The default model is Gemini 2.0 Flash (cheap and fast).
+
 ## Optional
 
-- **LLM Summaries**: Set `claude-sentinel-openrouter-api-key` to get auto-generated session titles via OpenRouter.
 - **Desktop notifications**: Requires D-Bus or `notify-send` on Linux.
 
 ## API
